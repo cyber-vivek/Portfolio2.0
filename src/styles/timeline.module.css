@@ -1,0 +1,99 @@
+.container {
+    padding: 1rem 1.5rem 0 1.5rem;
+}
+
+.container>ul {
+    list-style-type: none;
+    border-left: 2px solid #094a68;
+    padding: 0;
+    margin-left: calc(100%/2);
+    margin-top: 20px;
+}
+.timelineList> :nth-child(even) {
+    position: relative;
+    left: -100%;
+}
+
+.container>ul>li {
+    padding: 20px 20px;
+    position: relative;
+    visibility: hidden;
+}
+
+.container>ul>li span {
+    display: inline-block;
+    background-color: #1685b8;
+    border-radius: 25px;
+    padding: 3px 10px;
+    text-align: center;
+}
+
+.container>ul>li .content h3 {
+    color: #34ace0;
+    font-size: 17px;
+    padding-top: 5px;
+}
+
+.container>ul>li .content ul {
+    padding: 5px 0px 15px 25px;
+}
+
+.container>ul>li::before {
+    position: absolute;
+    content: '';
+    width: 10px;
+    height: 10px;
+    background-color: #34ace0;
+    border-radius: 50%;
+    left: -5px;
+    top: 28px;
+    transition: .5s;
+}
+.container>ul>li:nth-child(even)::before {
+    left: auto;
+    right: -5px;
+}
+
+/* .container>ul>li:hover::before {
+    background-color: #0F0;
+    box-shadow: 0px 0px 10px 2px #0F0;
+} */
+
+.container>ul>li.show:nth-child(even) {
+    animation: animateOddTimeLine 1s;
+}
+
+.show {
+    visibility: visible !important;
+    animation: animateEvenTimeLine 1s;
+}
+
+.container>ul>li.show::before {
+    animation: blinkConnection 1s;
+    animation-delay: 0.8s;
+}
+
+
+@keyframes blinkConnection {
+    100% {
+        background-color: #0F0;
+        box-shadow: 0px 0px 10px 2px #0F0;
+    }
+}
+
+@keyframes animateEvenTimeLine {
+    0%{
+        transform: translateX(50%);
+    }
+    100%{
+        transform: translateX(0%)
+    }
+}
+@keyframes animateOddTimeLine {
+    0%{
+        transform: translateX(-50%);
+    }
+    100%{
+        transform: translateX(0%)
+    }
+}
