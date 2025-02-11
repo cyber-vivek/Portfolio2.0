@@ -2,7 +2,6 @@
     background-image: linear-gradient(to right, rgb(13, 18, 36), rgb(10, 13, 55));
     border: 1px solid;
     border-color: rgba(27, 44, 104, 0.627);
-    margin: 1rem;
     flex: 1;
 }
 .dot_container {
@@ -61,14 +60,6 @@
     }
   }
   
-  .blink {
-    animation: blink-animation 1s infinite;
-  }
-  
-  @keyframes blink-animation {
-    50% { opacity: 0.5; }
-  }
-  
   .keyword {
     color: #ec4899;
     margin-right: 0.5rem;
@@ -111,6 +102,6 @@
     margin-left: 2rem;
   }
   
-  .indent_2 {
+  .indent_3 {
     margin-left: 3rem;
   }

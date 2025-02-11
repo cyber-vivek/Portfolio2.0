@@ -11,7 +11,7 @@ const About = () => {
         </div>
         <div className={styles.rightContainer}>
             <div className={styles.avatar}>
-                <img loading='lazy' src="/images/vivek-profile.jpg" alt="Profile" />
+                <img src={`${process.env.PUBLIC_URL}/images/vivek-profile.jpg`} alt="Profile" />
             </div>
         </div>
     </div>

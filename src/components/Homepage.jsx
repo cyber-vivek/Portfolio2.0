@@ -14,10 +14,7 @@ const Homepage = () => {
                     Hello World!
                 </span>
                 <span>
-                    This is Vivek Kumar Verma,
-                </span>
-                <span>
-                    I'm a Sofoware Developer
+                    This is <span className={styles.pinkText}>Vivek Kumar Verma</span>, I'm a Sofoware Developer
                 </span>
             </div>
             <Code/>

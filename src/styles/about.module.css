@@ -2,6 +2,7 @@
     display: flex;
     gap: 3rem;
     margin-top: 6rem;
+    padding: 0 2rem;
 }
 
 .about {
@@ -24,7 +25,7 @@
     overflow: hidden;
     width: 280px;
     height: 280px;
-    border-radius: 19px;
+    border-radius: 50%;
 }
 
 .avatar img {
@@ -37,4 +38,16 @@
 }
 .avatar img:hover {
     transform: scale(1.2);
+}
+
+@media(max-width: 1024px) {
+    .container {
+        flex-direction: column-reverse;
+    }
+    .about h3{
+        text-align: center;
+    }
+    .container {
+        gap: 1rem;
+    }
 }
