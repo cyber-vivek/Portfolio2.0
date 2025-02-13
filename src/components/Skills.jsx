@@ -1,14 +1,42 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styles from '../styles/skills.module.css';
 import { SKILLS } from '../constants/info';
 
 const Skills = () => {
+
+  useEffect(() => {
+    const observerCallback = (entries => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting) {
+                entry.target.classList.add(styles.show);
+                observer.unobserve(entry.target);
+            }
+        })
+    })
+    const options = {
+        threshold: 0.3
+      };
+      
+    const observer = new IntersectionObserver(observerCallback, options);
+    const element = document.querySelectorAll(`.${styles.categoryContainer}`);
+    element.forEach(node => {
+        observer.observe(node);
+    })
+},[])
+
   return (
     <div className={styles.container}>
+       <div className={styles.headerContainer}>
+      <div className={styles.innerContainer}>
+        <span className={styles.line}></span>
+        <span className={styles.text}>Skills</span>
+        <span className={styles.line}></span>
+      </div>
+    </div>
       <div className={styles.subSection}>
         {
           SKILLS.map(category =>
-            <>
+            <div className={styles.categoryContainer}>
               <h3 className={styles.title}>{category.name}</h3>
               <ul className={styles.grid}>
                 {category.skills.map((skill, index) => (
@@ -20,7 +48,7 @@ const Skills = () => {
                   </li>
                 ))}
               </ul>
-            </>
+            </div>
           )
         }
       </div>

@@ -59,6 +59,30 @@ export const SKILLS = [
       { name: "CSS", icon: <TailwindIcon />, bgColor: "#44a8b326" },
     ],
   },
+  {
+    name: "Backend",
+    skills: [
+      { name: "NodeJs", icon: <ReactIcon />, bgColor: "#7ee1fc26" },
+      { name: "Express", icon: <ReactIcon />, bgColor: "#7ee1fc26" },
+      { name: "Redis", icon: <ReactIcon />, bgColor: "#7ee1fc26" },
+      { name: "SQS", icon: <ReactIcon />, bgColor: "#7ee1fc26" },
+      { name: "Kafka", icon: <ReactIcon />, bgColor: "#7ee1fc26" },
+      { name: "MongoDB", icon: <TypeScriptIcon />, bgColor: "#007acc26" },
+      { name: "MySQL", icon: <TypeScriptIcon />, bgColor: "#007acc26" },
+      { name: "Django", icon: <TypeScriptIcon />, bgColor: "#007acc26" },
+    ],
+  },
+  {
+    name: "Miscellaneous",
+    skills: [
+      { name: "Data Structures", icon: <ReactIcon />, bgColor: "#7ee1fc26" },
+      { name: "Algorihms", icon: <ReactIcon />, bgColor: "#7ee1fc26" },
+      { name: "OOPs", icon: <ReactIcon />, bgColor: "#7ee1fc26" },
+      { name: "Operating Systems", icon: <TypeScriptIcon />, bgColor: "#007acc26" },
+      { name: "Git", icon: <TypeScriptIcon />, bgColor: "#007acc26" },
+      { name: "Shell Scripting", icon: <TypeScriptIcon />, bgColor: "#007acc26" },
+    ],
+  },
 ];
 
 export const TIMELINE_DATA = [
