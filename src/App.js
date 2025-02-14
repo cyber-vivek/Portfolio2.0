@@ -11,7 +11,7 @@ function App() {
       <Homepage />
       <About />
       <Skills/>
-      <Projects/>
+      {/* <Projects/> */}
       <Timeline/>
     </div>
   );

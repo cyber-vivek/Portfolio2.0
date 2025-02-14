@@ -2,6 +2,27 @@ import { ReactComponent as ReactIcon } from "../assets/react.svg";
 import { ReactComponent as TypeScriptIcon } from "../assets/typescript.svg";
 import { ReactComponent as JavaScriptIcon } from "../assets/javascript.svg";
 import { ReactComponent as TailwindIcon } from "../assets/tailwind.svg";
+import { ReactComponent as ReduxIcon } from "../assets/redux.svg";
+import { ReactComponent as ReduxSagaIcon } from "../assets/reduxSaga.svg";
+import { ReactComponent as AngularIcon } from "../assets/angular.svg";
+import { ReactComponent as BootstrapIcon } from "../assets/bootstrap.svg";
+import { ReactComponent as SCSSIcon } from "../assets/scss.svg";
+import { ReactComponent as HTMLIcon } from "../assets/html.svg";
+import { ReactComponent as CSSIcon } from "../assets/css.svg";
+import { ReactComponent as NodeIcon } from "../assets/node.svg";
+import { ReactComponent as ExpressIcon } from "../assets/express.svg";
+import { ReactComponent as RedisIcon } from "../assets/redis.svg";
+import { ReactComponent as SQSIcon } from "../assets/sqs.svg";
+import { ReactComponent as KafkaIcon } from "../assets/kafka.svg";
+import { ReactComponent as MongoIcon } from "../assets/mongo.svg";
+import { ReactComponent as MySQLIcon } from "../assets/mysql.svg";
+import { ReactComponent as DjangoIcon } from "../assets/django.svg";
+import { ReactComponent as DataStructuresIcon } from "../assets/dataStructures.svg";
+import { ReactComponent as AlgorithmsIcon } from "../assets/algorith.svg";
+import { ReactComponent as OSIcon } from "../assets/os.svg";
+import { ReactComponent as GitIcon } from "../assets/git.svg";
+import { ReactComponent as ShellIcon } from "../assets/shell.svg";
+import { ReactComponent as OOpsIcon } from "../assets/oops.svg";
 
 export const HEADERS = [
   {
@@ -47,40 +68,40 @@ export const SKILLS = [
     name: "Frontend",
     skills: [
       { name: "React", icon: <ReactIcon />, bgColor: "#7ee1fc26" },
-      { name: "Redux", icon: <ReactIcon />, bgColor: "#7ee1fc26" },
-      { name: "Redux-Saga", icon: <ReactIcon />, bgColor: "#7ee1fc26" },
-      { name: "Angular", icon: <TypeScriptIcon />, bgColor: "#007acc26" },
+      { name: "Redux", icon: <ReduxIcon />, bgColor: "#7ee1fc26" },
+      { name: "Redux-Saga", icon: <ReduxSagaIcon />, bgColor: "#7ee1fc26" },
+      { name: "Angular", icon: <AngularIcon />, bgColor: "#007acc26" },
       { name: "TypeScript", icon: <TypeScriptIcon />, bgColor: "#007acc26" },
       { name: "JavaScript", icon: <JavaScriptIcon />, bgColor: "#f0db4f26" },
       { name: "Tailwind CSS", icon: <TailwindIcon />, bgColor: "#44a8b326" },
-      { name: "Bootstrap", icon: <TailwindIcon />, bgColor: "#44a8b326" },
-      { name: "SCSS", icon: <TailwindIcon />, bgColor: "#44a8b326" },
-      { name: "HTML", icon: <TailwindIcon />, bgColor: "#44a8b326" },
-      { name: "CSS", icon: <TailwindIcon />, bgColor: "#44a8b326" },
+      { name: "Bootstrap", icon: <BootstrapIcon />, bgColor: "#44a8b326" },
+      { name: "SCSS", icon: <SCSSIcon />, bgColor: "#44a8b326" },
+      { name: "HTML", icon: <HTMLIcon />, bgColor: "#44a8b326" },
+      { name: "CSS", icon: <CSSIcon />, bgColor: "#44a8b326" },
     ],
   },
   {
     name: "Backend",
     skills: [
-      { name: "NodeJs", icon: <ReactIcon />, bgColor: "#7ee1fc26" },
-      { name: "Express", icon: <ReactIcon />, bgColor: "#7ee1fc26" },
-      { name: "Redis", icon: <ReactIcon />, bgColor: "#7ee1fc26" },
-      { name: "SQS", icon: <ReactIcon />, bgColor: "#7ee1fc26" },
-      { name: "Kafka", icon: <ReactIcon />, bgColor: "#7ee1fc26" },
-      { name: "MongoDB", icon: <TypeScriptIcon />, bgColor: "#007acc26" },
-      { name: "MySQL", icon: <TypeScriptIcon />, bgColor: "#007acc26" },
-      { name: "Django", icon: <TypeScriptIcon />, bgColor: "#007acc26" },
+      { name: "NodeJs", icon: <NodeIcon />, bgColor: "#7ee1fc26" },
+      { name: "Express", icon: <ExpressIcon />, bgColor: "#7ee1fc26" },
+      { name: "Redis", icon: <RedisIcon />, bgColor: "#7ee1fc26" },
+      { name: "SQS", icon: <SQSIcon />, bgColor: "#7ee1fc26" },
+      { name: "Kafka", icon: <KafkaIcon />, bgColor: "#7ee1fc26" },
+      { name: "MongoDB", icon: <MongoIcon />, bgColor: "#007acc26" },
+      { name: "MySQL", icon: <MySQLIcon />, bgColor: "#007acc26" },
+      { name: "Django", icon: <DjangoIcon />, bgColor: "#007acc26" },
     ],
   },
   {
     name: "Miscellaneous",
     skills: [
-      { name: "Data Structures", icon: <ReactIcon />, bgColor: "#7ee1fc26" },
-      { name: "Algorihms", icon: <ReactIcon />, bgColor: "#7ee1fc26" },
-      { name: "OOPs", icon: <ReactIcon />, bgColor: "#7ee1fc26" },
-      { name: "Operating Systems", icon: <TypeScriptIcon />, bgColor: "#007acc26" },
-      { name: "Git", icon: <TypeScriptIcon />, bgColor: "#007acc26" },
-      { name: "Shell Scripting", icon: <TypeScriptIcon />, bgColor: "#007acc26" },
+      { name: "Data Structures", icon: <DataStructuresIcon />, bgColor: "#7ee1fc26" },
+      { name: "Algorihms", icon: <AlgorithmsIcon />, bgColor: "#7ee1fc26" },
+      { name: "OOPs", icon: <OOpsIcon />, bgColor: "#7ee1fc26" },
+      { name: "Operating Systems", icon: <OSIcon />, bgColor: "#007acc26" },
+      { name: "Git", icon: <GitIcon />, bgColor: "#007acc26" },
+      { name: "Shell Scripting", icon: <ShellIcon />, bgColor: "#007acc26" },
     ],
   },
 ];
@@ -128,3 +149,5 @@ export const TIMELINE_DATA = [
     ],
   },
 ];
+
+export const RESUME_URL = 'https://drive.google.com/file/d/1_OtTZHPkM7F8p6jz0iLzGZQt-fqtpFe2/view?usp=drive_link'

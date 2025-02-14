@@ -50,6 +50,7 @@
 
   .iconWrapper svg {
     width: 1.25rem;
+    height: 1.25rem;
   }
   
   .skillName {
@@ -112,7 +113,7 @@
   }
   @media(max-width: 768px) {
     .grid {
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
     }
     .skillItem {
       flex-direction: column;
