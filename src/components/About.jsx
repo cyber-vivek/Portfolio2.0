@@ -4,7 +4,7 @@ import { ABOUT_INFO } from '../constants/info';
 
 const About = () => {
   return (
-    <div className={styles.container}>
+    <div id='aboutSection' className={styles.container}>
         <div className={styles.about}>
             <h3>WHO I AM?</h3>
             {ABOUT_INFO}

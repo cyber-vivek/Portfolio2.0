@@ -37,6 +37,10 @@ span.pinkText {
     gap: 1rem;
 }
 
+.navUrls>a:hover {
+    transform: scale(1.2);
+}
+
 .downloadWrapper {
     margin: 1rem;
     display: flex;

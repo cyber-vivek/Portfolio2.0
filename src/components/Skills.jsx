@@ -25,7 +25,7 @@ const Skills = () => {
 },[])
 
   return (
-    <div className={styles.container}>
+    <div id='skillsSection' className={styles.container}>
        <div className={styles.headerContainer}>
       <div className={styles.innerContainer}>
         <span className={styles.line}></span>

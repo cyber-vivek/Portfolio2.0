@@ -27,12 +27,15 @@ import { ReactComponent as OOpsIcon } from "../assets/oops.svg";
 export const HEADERS = [
   {
     displayName: "Home",
+    redirection: '#'
   },
   {
     displayName: "About",
+    redirection: '#aboutSection'
   },
   {
     displayName: "Skills",
+    redirection: '#skillsSection'
   },
   {
     displayName: "Projects",
@@ -54,7 +57,6 @@ export const HOMEPAGE_SKILLS = [
   "Express",
   "Redis",
   "MySQL",
-  ,
   "SQS",
   "Docker",
 ];
@@ -149,5 +151,29 @@ export const TIMELINE_DATA = [
     ],
   },
 ];
+
+export const PROJECTS = [
+  {
+    name: 'My Vocab',
+    description: 'A full stack application with feature of account creation, user authentication, daily revision remider mail and infinite scrolling. User can add edit and delete words also revise the least revised word',
+    techstack: ['NodeJs', 'Express', 'MongoDB', 'React', 'node cron'],
+    githubUrl: 'https://github.com/cyber-vivek/MyVocab',
+    liveUrl: 'https://my-vocab-client.vercel.app/',
+  },
+  {
+    name: 'Chat Space',
+    description: 'A full stack application with feature of account creation, user authentication, daily revision remider mail and infinite scrolling. User can add edit and delete words also revise the least revised word',
+    techstack: ['NodeJs', 'Express', 'MongoDB', 'React', 'node cron'],
+    githubUrl: 'https://github.com/cyber-vivek/MyVocab',
+    liveUrl: 'https://my-vocab-client.vercel.app/',
+  },
+  {
+    name: 'Chat Space',
+    description: 'A full stack application with feature of account creation, user authentication, daily revision remider mail and infinite scrolling. User can add edit and delete words also revise the least revised word',
+    techstack: ['NodeJs', 'Express', 'MongoDB', 'React', 'node cron'],
+    githubUrl: 'https://github.com/cyber-vivek/MyVocab',
+    liveUrl: 'https://my-vocab-client.vercel.app/',
+  },
+]
 
 export const RESUME_URL = 'https://drive.google.com/file/d/1_OtTZHPkM7F8p6jz0iLzGZQt-fqtpFe2/view?usp=drive_link'

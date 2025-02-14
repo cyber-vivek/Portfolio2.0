@@ -36,7 +36,7 @@ const Header = () => {
             </div>
             <div ref={navRef}>
             <ul className={`${styles.nav_links} ${isNavOpen ? styles.navOpen: ''}`}>
-                {HEADERS.map(header => <a><li>{header.displayName}</li></a>)}  
+                {HEADERS.map(header => <a href={header.redirection}><li>{header.displayName}</li></a>)}  
             </ul>
             <div onClick={() => seIsNavOpen(prv => !prv)} className={styles.burger}>
                 <div class="line1 "></div>

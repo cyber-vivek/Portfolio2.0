@@ -44,7 +44,7 @@ const Code = () => {
                 <code ref={codeRef} className={styles.code}>
                     <div    >
                         <span className={styles.keyword}>const</span>
-                        <span className={styles.text}>coder</span>
+                        <span className={styles.text}>developer</span>
                         <span className={styles.keyword}>=</span>
                         <span className={styles.symbol}>{"{"}</span>
                     </div>
@@ -109,7 +109,7 @@ const Code = () => {
                     </div>
 
                     <div>
-                        <span className={`${styles.indent_1} ${styles.method}`}>hireable:</span>
+                        <span className={`${styles.indent_1} ${styles.method}`}>isGoodFit:</span>
                         <span className={styles.boolean}>function</span>
                         <span className={styles.symbol}>{"() {"}</span>
                     </div>
