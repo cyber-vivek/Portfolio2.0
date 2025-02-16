@@ -34,17 +34,23 @@ export const HEADERS = [
     redirection: '#aboutSection'
   },
   {
+    displayName: 'Experience',
+    redirection: '#experienceSection'
+  },
+  {
     displayName: "Skills",
     redirection: '#skillsSection'
   },
   {
     displayName: "Projects",
+    redirection: '#projectsSection'
   },
-  {
-    displayName: "Timeline",
-  },
+  // {
+  //   displayName: "Timeline",
+  // },
   {
     displayName: "Connect",
+    redirection: '#conncetSection'
   },
 ];
 
@@ -152,27 +158,75 @@ export const TIMELINE_DATA = [
   },
 ];
 
+export const EXPERIENCE_DATA = [
+  {
+    TIME: "June 2023 - Present",
+    TITLE: "Software Developer",
+    POINTS: [
+      "Improved loading of CMS application by 40% using React lazy loading, Suspense, web workers and memoization, context splitting to prevent unnecessary re-renders",
+      "Integrated Wheebox RPaaS in the test engine, enabling live camera feeds, face detection and real-time chat using WebSocket in React.js and Node.js, resulting 100% user authenticity and effective monitoring for students",
+      "Implemented a modular approach by setting up Git submodules for reusable components/hooks in React projects, alongside components, services, directives, and pipes in Angular projects, cutting development time by 30% and greatly enhancing code reusability",
+      "Built a Test engine to conduct AITS exam for over 10,000+ students, using React and Redux having modern features like question randomization, violation detection, proctoring and test state saving. Created reusable components and integrated APIs and Websockets for real time updates",
+      "Successfully managing all stages of development, actively participating in feature ideation, development planning, implementation, deployment and E2E testing",
+    ],
+  },
+  {
+    TIME: "June-August, 2022",
+    TITLE: "Software Developer Intern",
+    POINTS: [
+      "Followed Agile methodology to develop a Blockchain explorer to display information on blockchain network",
+      "Implemented API gateway in Node.js, used React.js and incorporated Redux for global state management, Redux-Saga for Asynchronous operations, enabling ability to connect with multiple blockchain networks",
+      "Introduced Advance filters to retrieve Blocks and Transactions efficiently, saving time for 1000+ clients"
+    ],
+  },
+];
+
 export const PROJECTS = [
   {
     name: 'My Vocab',
     description: 'A full stack application with feature of account creation, user authentication, daily revision remider mail and infinite scrolling. User can add edit and delete words also revise the least revised word',
-    techstack: ['NodeJs', 'Express', 'MongoDB', 'React', 'node cron'],
+    techstack: ['NodeJs', 'Express', 'MongoDB', 'React', 'node-cron', 'nodemailer'],
     githubUrl: 'https://github.com/cyber-vivek/MyVocab',
     liveUrl: 'https://my-vocab-client.vercel.app/',
   },
   {
     name: 'Chat Space',
-    description: 'A full stack application with feature of account creation, user authentication, daily revision remider mail and infinite scrolling. User can add edit and delete words also revise the least revised word',
-    techstack: ['NodeJs', 'Express', 'MongoDB', 'React', 'node cron'],
+    description: 'A full stack application with feature of account creation, user authentication and chat with any user with real time notification and chat history saving',
+    techstack: ['NodeJs', 'Express', 'MongoDB', 'React', 'Socket'],
     githubUrl: 'https://github.com/cyber-vivek/MyVocab',
     liveUrl: 'https://my-vocab-client.vercel.app/',
   },
   {
-    name: 'Chat Space',
-    description: 'A full stack application with feature of account creation, user authentication, daily revision remider mail and infinite scrolling. User can add edit and delete words also revise the least revised word',
-    techstack: ['NodeJs', 'Express', 'MongoDB', 'React', 'node cron'],
-    githubUrl: 'https://github.com/cyber-vivek/MyVocab',
-    liveUrl: 'https://my-vocab-client.vercel.app/',
+    name: 'Blog App',
+    description: 'A blog app that allows users to create, update and delete their posts with functionalities of login, password reset and paignation',
+    techstack: ['Python', 'Django', 'Azure Blob', 'Azure app servie', 'HTML', 'CSS'],
+    githubUrl: 'https://github.com/cyber-vivek/Blog-App',
+  },
+  {
+    name: 'AI News Assistent',
+    description: 'AI News Assistant is a voice-powered news app that provides the latest updates or news from specific sources on demand. Users can simply speak to get real-time news effortlessly',
+    techstack: ['ReactJs', 'AlanAI', 'News API', 'HTML', 'CSS'],
+    githubUrl: 'https://github.com/cyber-vivek/AI-News-Assitant',
+  },
+  {
+    name: 'Entertainment Hub',
+    description: 'A responsive single-page web app that displays trending movies and TV series. It allows users to search by name, filter by genres, and fetches data from The Movie DB API',
+    techstack: ['ReactJs', 'Material UI', 'TheMovieDB', 'HTML', 'CSS'],
+    githubUrl: 'https://github.com/cyber-vivek/Entertainment-Hub',
+    liveUrl: 'https://myentertainment-hub.netlify.app'
+  },
+  {
+    name: 'Clipboard-Chrome-Extension',
+    description: 'It detects and displays the recent 50 text copies by the user with features of removing and deleting and saving some words for forever',
+    techstack: ['HTML', 'CSS', 'Service Worker', 'Content Scripts', 'Chrome Storage'],
+    githubUrl: 'https://github.com/cyber-vivek/Clipboard-Chrome-Extension',
+  },
+  {
+    name: 'Snake Game',
+    description: 'Fully functional and interactive Snake Game with game over and high score saving functionality with sound effects',
+    techstack: ['HTML', 'CSS', 'JavaScript', 'requestanimationframe'],
+    githubUrl: 'https://github.com/cyber-vivek/Snake-Game.github.io',
+    liveUrl: 'https://cyber-vivek.github.io/Snake-Game.github.io/'
   },
 ]
 
