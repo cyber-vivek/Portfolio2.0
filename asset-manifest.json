@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Portfolio2.0/static/css/main.3cd05ecd.css",
-    "main.js": "/Portfolio2.0/static/js/main.cf2e35ea.js",
+    "main.css": "/Portfolio2.0/static/css/main.ab6ede67.css",
+    "main.js": "/Portfolio2.0/static/js/main.bfdac94b.js",
     "static/media/connectInstagram.svg": "/Portfolio2.0/static/media/connectInstagram.69a236f48f8aeb82abe1f0a34f06c7d7.svg",
     "static/media/os.svg": "/Portfolio2.0/static/media/os.c90c13652cb2e367865c79e1fb91ff37.svg",
     "static/media/hero.svg": "/Portfolio2.0/static/media/hero.8f9190d875c91d5c4a50.svg",
@@ -37,11 +37,11 @@
     "static/media/tailwind.svg": "/Portfolio2.0/static/media/tailwind.26f2229b51505d55162d81e220cf70eb.svg",
     "static/media/css.svg": "/Portfolio2.0/static/media/css.b199e6c06ad0bc66726aea7d4ee53f39.svg",
     "static/media/html.svg": "/Portfolio2.0/static/media/html.3bcf8e9d887f043ff6050860be1fd7a2.svg",
-    "main.3cd05ecd.css.map": "/Portfolio2.0/static/css/main.3cd05ecd.css.map",
-    "main.cf2e35ea.js.map": "/Portfolio2.0/static/js/main.cf2e35ea.js.map"
+    "main.ab6ede67.css.map": "/Portfolio2.0/static/css/main.ab6ede67.css.map",
+    "main.bfdac94b.js.map": "/Portfolio2.0/static/js/main.bfdac94b.js.map"
   },
   "entrypoints": [
-    "static/css/main.3cd05ecd.css",
-    "static/js/main.cf2e35ea.js"
+    "static/css/main.ab6ede67.css",
+    "static/js/main.bfdac94b.js"
   ]
 }
