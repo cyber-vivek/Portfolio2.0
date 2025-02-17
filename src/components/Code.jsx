@@ -109,7 +109,7 @@ const Code = () => {
                     </div>
 
                     <div>
-                        <span className={`${styles.indent_1} ${styles.method}`}>isGoodFit:</span>
+                        <span className={`${styles.indent_1} ${styles.method}`}>isTechSavvy:</span>
                         <span className={styles.boolean}>function</span>
                         <span className={styles.symbol}>{"() {"}</span>
                     </div>
