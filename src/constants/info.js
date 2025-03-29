@@ -193,8 +193,8 @@ export const PROJECTS = [
     name: 'Chat Space',
     description: 'A full stack application with feature of account creation, user authentication and chat with any user with real time notification and chat history saving',
     techstack: ['NodeJs', 'Express', 'MongoDB', 'React', 'Socket'],
-    githubUrl: 'https://github.com/cyber-vivek/MyVocab',
-    liveUrl: 'https://my-vocab-client.vercel.app/',
+    githubUrl: 'https://github.com/cyber-vivek/ChatSpace',
+    liveUrl: 'https://chat-space-connect.vercel.app/',
   },
   {
     name: 'Blog App',
