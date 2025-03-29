@@ -13,15 +13,19 @@ const Skills = () => {
       });
     };
     const options = {
-      threshold: 0.3,
-      rootMargin: "0px 0px -10% 0px"
+      threshold: 1,
+      rootMargin: "0px 0px -10px 0px"
     };
 
     const observer = new IntersectionObserver(observerCallback, options);
-    const element = document.querySelectorAll(`.${styles.categoryContainer}`);
-    element.forEach((node) => {
+    const TitleElement = document.querySelectorAll(`.${styles.title}`);
+    TitleElement.forEach((node) => {
       observer.observe(node);
     });
+    const skillElement = document.querySelectorAll(`.${styles.skillItem}`)
+    skillElement.forEach(item => {
+      observer.observe(item);
+    })
   }, []);
 
   return (
