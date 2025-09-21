@@ -4,6 +4,7 @@ import linkedInIcon from "../assets/connectLinkedIn.svg";
 import githhubIcon from "../assets/connectGithub.svg";
 import instagramIcon from "../assets/connectInstagram.svg";
 import facebookIcon from "../assets/connectFacebook.svg";
+import { CONNET_INFO } from "../constants/info";
 
 const Connect = () => {
   return (
@@ -18,20 +19,20 @@ const Connect = () => {
       <div className={styles.socialMediaLinks}>
         <a
           className={styles.linkedIn}
-          href="https://www.linkedin.com/in/vivek-kv-2002/"
+          href={CONNET_INFO.linkedIn}
           target="blank"
         >
           <img src={linkedInIcon} alt="linkedIn" />
         </a>
-        <a href="https://github.com/cyber-vivek" target="blank">
+        <a href={CONNET_INFO.github} target="blank">
           <img src={githhubIcon} alt="github" />
         </a>
-        <a href="https://www.instagram.com/vivek_verma.830/" target="blank">
+        <a href={CONNET_INFO.instagram} target="blank">
           <img src={instagramIcon} alt="instagram" />
         </a>
         <a
           className={styles.facebook}
-          href="https://www.facebook.com/profile.php?id=100010384099029"
+          href={CONNET_INFO.facebook}
           target="blank"
         >
           <img src={facebookIcon} alt="facebook" />
@@ -40,12 +41,12 @@ const Connect = () => {
       <div className={styles.contactLinks}>
         <div className={styles.contact}>
           <div className={styles.contactIcon}>call</div>
-          <a href="tel:8303511211">8303511211</a>
+          <a href={`tel:${CONNET_INFO.mobile}`}>{CONNET_INFO.mobile}</a>
         </div>
         <div className={styles.contact}>
           <div className={styles.contactIcon}>Email</div>
-          <a href="mailto: vivekkr.verma14@gmail.com">
-            vivekkr.verma14@gmail.com
+          <a href={`mailto:${CONNET_INFO.email}`}>
+            {CONNET_INFO.email}
           </a>
         </div>
       </div>

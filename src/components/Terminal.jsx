@@ -1,5 +1,6 @@
-import React, { useState, useRef, useEffect, use } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styles from '../styles/Terminal.module.css';
+import { CONNET_INFO, EXPERIENCE_DATA, PROJECTS, SKILLS } from '../constants/info';
 
 const FloatingTerminal = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,6 +15,8 @@ const FloatingTerminal = () => {
     { type: 'output', content: '' }
   ]);
 
+  const currentPath = useRef('user@vivekverma.com:~$ ');
+
   useEffect(() => {
     if (isAnimating) {
       const timer = setTimeout(() => {
@@ -23,8 +26,6 @@ const FloatingTerminal = () => {
       return () => clearTimeout(timer);
     }
   }, [isAnimating]);
-
-  const [currentPath, setCurrentPath] = useState('~/portfolio');
   
   const terminalRef = useRef(null);
   const inputRef = useRef(null);
@@ -32,7 +33,6 @@ const FloatingTerminal = () => {
 
   const commands = {
     help: {
-      description: 'Show available commands',
       execute: () => [
         'Available commands:',
         '  help          - Show this help message',
@@ -53,178 +53,73 @@ const FloatingTerminal = () => {
       ]
     },
     about: {
-      description: 'Display information about Vivek',
       execute: () => [
         'Name: Vivek Kumar Verma',
         'Role: Software Developer',
         'Location: India',
         'Education: IIT BHU (Mechanical Engineering)',
         'Passion: Solving complex problems and exploring new technologies',
-        'Status: Available for opportunities'
+        'Status: Learning and growing every day!✨'
       ]
     },
     skills: {
-      description: 'Show technical skills',
-      execute: () => [
-        'Frontend: React, Redux, Angular, TypeScript, JavaScript, Tailwind CSS',
-        'Backend: Node.js, Express, Django, Redis, Kafka, SQS',
-        'Database: MongoDB, MySQL',
-        'Tools: Git, Docker, Shell Scripting',
-        'Other: Data Structures, Algorithms, OOPs, Operating Systems'
-      ]
+      execute: () => {
+        return SKILLS.map(skill => {
+          const umbrella = skill.name;
+          const skills = skill.skills.map(subSkill => subSkill.name).join(', ');
+          return `${umbrella}: ${skills}`;
+        })
+      }
     },
     experience: {
-      description: 'Display work experience',
-      execute: () => [
-        'Software Developer at Edfora (June 2023 - Present)',
-        '  - Improved CMS application loading by 40% using React optimizations',
-        '  - Built test engine for 10,000+ students with proctoring features',
-        '  - Implemented modular approach reducing development time by 30%',
-        '',
-        'Software Developer Intern at Northern Trust (June-August 2022)',
-        '  - Developed Blockchain explorer using React and Node.js',
-        '  - Implemented API gateway with Redux for state management',
-        '  - Created advanced filters saving time for 1000+ clients'
-      ]
+      execute: () => {
+        return EXPERIENCE_DATA.map(exp => `${exp.TITLE} at ${exp.COMPANY_NAME} (${exp.TIME})`)
+      }
     },
     projects: {
-      description: 'List portfolio projects',
-      execute: () => [
-        '1. My Vocab - Full stack vocabulary app with daily reminders',
-        '2. Chat Space - Real-time chat application with notifications',
-        '3. Blog App - Django-based blog with Azure integration',
-        '4. AI News Assistant - Voice-powered news app using AlanAI',
-        '5. Entertainment Hub - Movie/TV series discovery app',
-        '6. Clipboard Chrome Extension - Text copy management tool',
-        '7. Snake Game - Interactive game with high score tracking',
-        '',
-        'Type "cat projects" for detailed project information'
-      ]
+      execute: () => {
+        return PROJECTS.map(project => {
+          return `${project.name}: ${project.description}`;
+        })
+      }
     },
     contact: {
-      description: 'Show contact information',
-      execute: () => [
-        'Email: vivek.verma@example.com',
-        'LinkedIn: linkedin.com/in/vivek-kumar-verma',
-        'GitHub: github.com/cyber-vivek',
-        'Phone: +91-XXXXXXXXXX',
-        'Resume: Available on request'
-      ]
+      execute: () => {
+        return Object.entries(CONNET_INFO).map(([key, value]) => `${key.charAt(0).toUpperCase() + key.slice(1)}: ${value}`);
+      }
     },
     clear: {
-      description: 'Clear terminal screen',
       execute: () => {
         setHistory([]);
         return [];
       }
     },
     whoami: {
-      description: 'Display current user',
       execute: () => ['vivek']
     },
-    pwd: {
-      description: 'Print working directory',
-      execute: () => [currentPath]
-    },
-    ls: {
-      description: 'List directory contents',
-      execute: () => [
-        'about.txt',
-        'skills.txt',
-        'experience.txt',
-        'projects.txt',
-        'contact.txt',
-        'resume.pdf'
-      ]
-    },
-    cat: {
-      description: 'Display file contents',
-      execute: (args) => {
-        const file = args[0];
-        const files = {
-          'about.txt': [
-            'Vivek Kumar Verma - Software Developer',
-            'Passionate about solving complex problems and building innovative solutions.',
-            'Quick learner with expertise in full-stack development.',
-            'Always eager to explore new technologies and methodologies.'
-          ],
-          'skills.txt': [
-            'Frontend Technologies:',
-            '- React, Redux, Angular, TypeScript, JavaScript',
-            '- Tailwind CSS, Bootstrap, SCSS, HTML, CSS',
-            '',
-            'Backend Technologies:',
-            '- Node.js, Express, Django',
-            '- Redis, Kafka, SQS, MongoDB, MySQL',
-            '',
-            'Tools & Others:',
-            '- Git, Docker, Shell Scripting',
-            '- Data Structures, Algorithms, OOPs'
-          ],
-          'experience.txt': [
-            'Current Role: Software Developer at Edfora',
-            'Duration: June 2023 - Present',
-            'Key Achievements:',
-            '- 40% improvement in application loading time',
-            '- Built test engine for 10,000+ students',
-            '- 30% reduction in development time through modular approach',
-            '',
-            'Previous: Software Developer Intern at Northern Trust',
-            'Duration: June-August 2022',
-            'Key Achievements:',
-            '- Developed Blockchain explorer',
-            '- Implemented API gateway with Redux'
-          ],
-          'projects.txt': [
-            '1. My Vocab - Vocabulary learning app with daily reminders',
-            '   Tech: Node.js, Express, MongoDB, React',
-            '   Features: User auth, infinite scrolling, email reminders',
-            '',
-            '2. Chat Space - Real-time chat application',
-            '   Tech: Node.js, Express, MongoDB, React, Socket.io',
-            '   Features: Real-time messaging, notifications, chat history',
-            '',
-            '3. AI News Assistant - Voice-powered news app',
-            '   Tech: React, AlanAI, News API',
-            '   Features: Voice commands, real-time news updates'
-          ],
-          'contact.txt': [
-            'Get in touch with Vivek:',
-            'Email: vivek.verma@example.com',
-            'LinkedIn: linkedin.com/in/vivek-kumar-verma',
-            'GitHub: github.com/cyber-vivek',
-            'Phone: +91-XXXXXXXXXX'
-          ]
-        };
-        return files[file] || [`cat: ${file}: No such file or directory`];
-      }
-    },
-    echo: {
-      description: 'Echo text to terminal',
-      execute: (args) => [args.join(' ')]
-    },
     date: {
-      description: 'Show current date and time',
       execute: () => [new Date().toString()]
     },
     version: {
-      description: 'Show portfolio version',
       execute: () => ['Portfolio Terminal v2.0.0', 'Built with React and love ❤️']
     },
     close: {
-      description: 'Close terminal window',
       execute: () => {
-        setIsOpen(false);
+        handleClose();
         return ['Terminal closed. Click the terminal button to reopen.']
       }
-    }
+    },
+    hi: {
+      execute: () => ['Hello there! 👋']
+    },
+    hello: {
+      execute: () => ['Hello there! 👋']
+    },
   };
 
-  const executeCommand = (cmd) => {
-    const [commandName, ...args] = cmd.trim().split(' ');
-    
+  const executeCommand = (commandName) => {    
     if (commands[commandName]) {
-      const result = commands[commandName].execute(args);
+      const result = commands[commandName].execute();
       return result;
     } else {
       return [`${commandName}: command not found. Type "help" for available commands.`];
@@ -236,13 +131,15 @@ const FloatingTerminal = () => {
     if (!command.trim()) return;
 
     // Add command to history
-    const newHistory = [...history, { type: 'input', content: `${currentPath}$ ${command}` }];
-    
+    const inputHistory = [{ type: 'input', content: `${currentPath.current} ${command}` }];
+
+    const commandName = command.trim().toLowerCase();
+
     // Execute command and add output
-    const output = executeCommand(command);
+    const output = executeCommand(commandName);
     const outputHistory = output.map(line => ({ type: 'output', content: line }));
     
-    setHistory([...newHistory, ...outputHistory, { type: 'output', content: '' }]);
+    setHistory((prev) => [...prev, ...inputHistory, ...outputHistory, { type: 'output', content: '' }]);
     setCommand('');
     
     // Scroll to bottom
@@ -360,7 +257,7 @@ const FloatingTerminal = () => {
               </div>
             ))}
             <form onSubmit={handleSubmit} className={styles.inputForm}>
-              <span className={styles.prompt}>{currentPath}$ </span>
+              <span className={styles.prompt}>{currentPath.current}</span>
               <input
                 ref={inputRef}
                 type="text"

@@ -160,8 +160,18 @@ export const TIMELINE_DATA = [
 
 export const EXPERIENCE_DATA = [
   {
-    TIME: "June 2023 - Present",
+    TIME: "March 2025 - Present",
     TITLE: "Software Developer",
+    COMPANY_NAME: "Project44",
+    POINTS: [
+      "Unified the design system by migrating the components to material UI V5, in 40+ apps of the micro-frontend architecture, improving the performance and accessibility",
+      "Created Freight Audit to manage invoices and payments of Saving and easing the process for 100+ carriers ans shippers",
+    ]
+  },
+  {
+    TIME: "June 2023 - March 2025",
+    TITLE: "Software Developer",
+    COMPANY_NAME: "Edfora",
     POINTS: [
       "Improved loading of CMS application by 40% using React lazy loading, Suspense, web workers and memoization, context splitting to prevent unnecessary re-renders",
       "Integrated Wheebox RPaaS in the test engine, enabling live camera feeds, face detection and real-time chat using WebSocket in React.js and Node.js, resulting 100% user authenticity and effective monitoring for students",
@@ -173,6 +183,7 @@ export const EXPERIENCE_DATA = [
   {
     TIME: "June-August, 2022",
     TITLE: "Software Developer Intern",
+    COMPANY_NAME: "Northern Trust",
     POINTS: [
       "Followed Agile methodology to develop a Blockchain explorer to display information on blockchain network",
       "Implemented API gateway in Node.js, used React.js and incorporated Redux for global state management, Redux-Saga for Asynchronous operations, enabling ability to connect with multiple blockchain networks",
@@ -231,3 +242,12 @@ export const PROJECTS = [
 ]
 
 export const RESUME_URL = 'https://drive.google.com/file/d/1_OtTZHPkM7F8p6jz0iLzGZQt-fqtpFe2/view?usp=drive_link'
+
+export const CONNET_INFO = {
+  mobile: '8303511211',
+  email: 'vivekkr.verma14@gmail.com',
+  linkedIn: 'https://www.linkedin.com/in/vivek-kv-2002/',
+  github: 'https://github.com/cyber-vivek',
+  instagram: 'https://www.instagram.com/vive_ek.kv/',
+  facebook: 'https://www.facebook.com/profile.php?id=100010384099029'
+}
