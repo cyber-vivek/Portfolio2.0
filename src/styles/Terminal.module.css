@@ -274,28 +274,16 @@
 }
 
 /* Command highlighting */
-.terminalLine:has(.outputLine:contains("command not found")) .outputLine {
+.outputLine .commandNotFound {
   color: #ff6b6b;
 }
 
-.terminalLine:has(.outputLine:contains("No such file")) .outputLine {
-  color: #ff6b6b;
-}
-
-.terminalLine:has(.outputLine:contains("Welcome")) .outputLine {
+.outputLine .welcomeMessage {
   color: #51cf66;
 }
 
-.terminalLine:has(.outputLine:contains("Available commands")) .outputLine {
+.outputLine .availableCommands {
   color: #ffd43b;
-}
-
-.terminalLine:has(.outputLine:contains(".txt")) .outputLine {
-  color: #74c0fc;
-}
-
-.terminalLine:has(.outputLine:contains(".pdf")) .outputLine {
-  color: #ff8787;
 }
 
 /* Drag indicator */
@@ -339,6 +327,15 @@
   z-index: -1;
   opacity: 0;
   transition: opacity 0.3s ease;
+}
+
+.terminalURL {
+  color: white;
+  font-size: 13px;
+  font-weight: 400;
+}
+.terminalURL:active {
+  color: white;
 }
 
 .terminalButton:hover::before {

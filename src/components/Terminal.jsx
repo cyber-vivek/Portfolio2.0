@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styles from '../styles/Terminal.module.css';
-import { CONNET_INFO, EXPERIENCE_DATA, PROJECTS, SKILLS } from '../constants/info';
+import { CONNET_INFO, EXPERIENCE_DATA, PROJECTS, RESUME_URL, SKILLS } from '../constants/info';
 
 const FloatingTerminal = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +10,7 @@ const FloatingTerminal = () => {
   const dragStart = useRef({ x: 0, y: 0 });
   const [command, setCommand] = useState('');
   const [history, setHistory] = useState([
-    { type: 'output', content: 'Welcome to Vivek\'s Portfolio Terminal!' },
+    { type: 'output', content: <span className={styles.welcomeMessage}>Welcome to Vivek's Terminal!</span> },
     { type: 'output', content: 'Type "help" to see available commands.' },
     { type: 'output', content: '' }
   ]);
@@ -26,7 +26,7 @@ const FloatingTerminal = () => {
       return () => clearTimeout(timer);
     }
   }, [isAnimating]);
-  
+
   const terminalRef = useRef(null);
   const inputRef = useRef(null);
   const containerRef = useRef(null);
@@ -34,7 +34,7 @@ const FloatingTerminal = () => {
   const commands = {
     help: {
       execute: () => [
-        'Available commands:',
+        <span className={styles.availableCommands}>Available commands:</span>,
         '  help          - Show this help message',
         '  about         - Display information about Vivek',
         '  skills        - Show technical skills',
@@ -44,9 +44,6 @@ const FloatingTerminal = () => {
         '  clear         - Clear terminal screen',
         '  whoami        - Display current user',
         '  pwd           - Print working directory',
-        '  ls            - List directory contents',
-        '  cat <file>    - Display file contents',
-        '  echo <text>   - Echo text to terminal',
         '  date          - Show current date and time',
         '  version       - Show portfolio version',
         '  close         - Close terminal window'
@@ -85,7 +82,9 @@ const FloatingTerminal = () => {
     },
     contact: {
       execute: () => {
-        return Object.entries(CONNET_INFO).map(([key, value]) => `${key.charAt(0).toUpperCase() + key.slice(1)}: ${value}`);
+        return Object.entries(CONNET_INFO).map(([key, value]) => {
+          return <>{key.charAt(0).toUpperCase() + key.slice(1)}: {!value.includes('http') ? value : <a className={styles.terminalURL} href={value} target='_new'>{value}</a>}</>
+        });
       }
     },
     clear: {
@@ -115,14 +114,17 @@ const FloatingTerminal = () => {
     hello: {
       execute: () => ['Hello there! 👋']
     },
+    resume: {
+      execute: () => [<a className={styles.terminalURL} href={RESUME_URL} target='_new'>Resume(PDF)</a>]
+    }
   };
 
-  const executeCommand = (commandName) => {    
+  const executeCommand = (commandName) => {
     if (commands[commandName]) {
       const result = commands[commandName].execute();
       return result;
     } else {
-      return [`${commandName}: command not found. Type "help" for available commands.`];
+      return [<span className={styles.commandNotFound}>{commandName}: command not found. Type "help" for available commands.</span>];
     }
   };
 
@@ -130,18 +132,17 @@ const FloatingTerminal = () => {
     e.preventDefault();
     if (!command.trim()) return;
 
-    // Add command to history
-    const inputHistory = [{ type: 'input', content: `${currentPath.current} ${command}` }];
-
     const commandName = command.trim().toLowerCase();
 
     // Execute command and add output
     const output = executeCommand(commandName);
+
+    const inputHistory = commandName === 'clear' ? [] : [{ type: 'input', content: `${currentPath.current} ${command}` }];
     const outputHistory = output.map(line => ({ type: 'output', content: line }));
-    
+
     setHistory((prev) => [...prev, ...inputHistory, ...outputHistory, { type: 'output', content: '' }]);
     setCommand('');
-    
+
     // Scroll to bottom
     setTimeout(() => {
       if (terminalRef.current) {
@@ -168,7 +169,7 @@ const FloatingTerminal = () => {
       inputRef.current.focus();
       document.addEventListener('click', handleTerminalClick);
     }
-    if(!isOpen) {
+    if (!isOpen) {
       document.removeEventListener('click', handleTerminalClick);
     }
 
@@ -206,10 +207,7 @@ const FloatingTerminal = () => {
         onClick={handleToggle}
         title={isOpen ? 'Close Terminal' : 'Open Terminal'}
       >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M20 19V5c0-1.1-.9-2-2-2H6c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2zM8 19v-6h8v6H8zm0-8V5h8v6H8z"/>
-          <path d="M10 7h4v2h-4V7zm0 4h4v2h-4v-2z"/>
-        </svg>
+        <svg width="34px" height="34px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="System / Terminal"> <path id="Vector" d="M17 15H12M7 10L10 12.5L7 15M3 15.8002V8.2002C3 7.08009 3 6.51962 3.21799 6.0918C3.40973 5.71547 3.71547 5.40973 4.0918 5.21799C4.51962 5 5.08009 5 6.2002 5H17.8002C18.9203 5 19.4796 5 19.9074 5.21799C20.2837 5.40973 20.5905 5.71547 20.7822 6.0918C21 6.5192 21 7.07899 21 8.19691V15.8031C21 16.921 21 17.48 20.7822 17.9074C20.5905 18.2837 20.2837 18.5905 19.9074 18.7822C19.48 19 18.921 19 17.8031 19H6.19691C5.07899 19 4.5192 19 4.0918 18.7822C3.71547 18.5905 3.40973 18.2837 3.21799 17.9074C3 17.4796 3 16.9203 3 15.8002Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g> </g></svg>
       </button>
 
       {isOpen && (
@@ -223,51 +221,51 @@ const FloatingTerminal = () => {
           }}
         >
           <div className={styles.terminalWindow}>
-          <div className={styles.terminalHeader} onMouseDown={handleMouseDown}>
-            <div className={`${styles.terminalButtons} terminal-buttons`}>
-              <button 
-                className={`${styles.button} ${styles.close}`}
-                onClick={handleClose}
-                title="Close"
-              >⨉</button>
-              <button 
-                className={`${styles.button} ${styles.minimize}`}
-                onClick={handleClose}
-                title="Minimize"
-              >⎯</button>
-              <button 
-                className={`${styles.button} ${styles.maximize}`}
-                title="Maximize"
-              >⤡</button>
-            </div>
-            <div className={styles.terminalTitle}>Terminal - Portfolio</div>
-          </div>
-          <div className={styles.terminalBody} ref={terminalRef}>
-            {history.map((item, index) => (
-              <div key={index} className={styles.terminalLine}>
-                {item.type === 'input' ? (
-                  <div className={styles.inputLine}>
-                    <span className={styles.prompt}>{item.content}</span>
-                  </div>
-                ) : (
-                  <div className={styles.outputLine}>
-                    {item.content}
-                  </div>
-                )}
+            <div className={styles.terminalHeader} onMouseDown={handleMouseDown}>
+              <div className={`${styles.terminalButtons} terminal-buttons`}>
+                <button
+                  className={`${styles.button} ${styles.close}`}
+                  onClick={handleClose}
+                  title="Close"
+                >⨉</button>
+                <button
+                  className={`${styles.button} ${styles.minimize}`}
+                  onClick={handleClose}
+                  title="Minimize"
+                >⎯</button>
+                <button
+                  className={`${styles.button} ${styles.maximize}`}
+                  title="Maximize"
+                >⤡</button>
               </div>
-            ))}
-            <form onSubmit={handleSubmit} className={styles.inputForm}>
-              <span className={styles.prompt}>{currentPath.current}</span>
-              <input
-                ref={inputRef}
-                type="text"
-                value={command}
-                onChange={(e) => setCommand(e.target.value)}
-                className={styles.commandInput}
-                autoFocus
-              />
-            </form>
-          </div>
+              <div className={styles.terminalTitle}>Terminal - Portfolio</div>
+            </div>
+            <div className={styles.terminalBody} ref={terminalRef}>
+              {history.map((item, index) => (
+                <div key={index} className={styles.terminalLine}>
+                  {item.type === 'input' ? (
+                    <div className={styles.inputLine}>
+                      <span className={styles.prompt}>{item.content}</span>
+                    </div>
+                  ) : (
+                    <div className={styles.outputLine}>
+                      {item.content}
+                    </div>
+                  )}
+                </div>
+              ))}
+              <form onSubmit={handleSubmit} className={styles.inputForm}>
+                <span className={styles.prompt}>{currentPath.current}</span>
+                <input
+                  ref={inputRef}
+                  type="text"
+                  value={command}
+                  onChange={(e) => setCommand(e.target.value)}
+                  className={styles.commandInput}
+                  autoFocus
+                />
+              </form>
+            </div>
           </div>
         </div>
       )}
